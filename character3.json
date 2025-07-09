@@ -1,0 +1,105 @@
+{
+  "character": {
+    "name": "Ghoul Survivor",
+    "origin": "Ghoul Survivor",
+    "level": 3,
+    "xp_earned": 600,
+    "xp_to_next": 300,
+    "caps": 10
+  },
+  "special": {
+    "S": 6,
+    "P": 5,
+    "E": 7,
+    "C": 4,
+    "I": 6,
+    "A": 4,
+    "L": 5
+  },
+  "derived": {
+    "luck_points": 5,
+    "melee_damage": 0,
+    "initiative": 5,
+    "defense": 2
+  },
+  "resistance": {
+    "head": { "hp": 2, "phys_dr": 1, "rad_dr": 2, "en_dr": 1 },
+    "torso": { "hp": 6, "phys_dr": 1, "rad_dr": 2, "en_dr": 1 },
+    "left_arm": { "hp": 2, "phys_dr": 1, "rad_dr": 2, "en_dr": 1 },
+    "right_arm": { "hp": 2, "phys_dr": 1, "rad_dr": 2, "en_dr": 1 },
+    "left_leg": { "hp": 2, "phys_dr": 1, "rad_dr": 2, "en_dr": 1 },
+    "right_leg": { "hp": 2, "phys_dr": 1, "rad_dr": 2, "en_dr": 1 },
+    "poison_dr": 0
+  },
+  "health": {
+    "current": 14,
+    "max": 14,
+    "torso": 6,
+    "duplicate_current": ""
+  },
+  "skills": {
+    "athletics": { "rank": 2, "tag": true },
+    "barter": { "rank": 1, "tag": false },
+    "big_guns": { "rank": 1, "tag": false },
+    "energy_weapons": { "rank": 1, "tag": false },
+    "explosives": { "rank": 0, "tag": false },
+    "lockpick": { "rank": 0, "tag": false },
+    "medicine": { "rank": 3, "tag": true },
+    "melee_weapons": { "rank": 2, "tag": false },
+    "pilot": { "rank": 0, "tag": false },
+    "repair": { "rank": 1, "tag": false },
+    "science": { "rank": 1, "tag": false },
+    "small_guns": { "rank": 2, "tag": false },
+    "sneak": { "rank": 3, "tag": true },
+    "speech": { "rank": 1, "tag": false },
+    "survival": { "rank": 3, "tag": true },
+    "throwing": { "rank": 1, "tag": false },
+    "unarmed": { "rank": 1, "tag": true }
+  },
+  "weapons": [
+    {
+      "name": "Rusty Machete",
+      "skill": "melee_weapons",
+      "tag": false,
+      "weight": 5,
+      "damage": "3d6",
+      "effects": "Slashing",
+      "type": "Melee",
+      "rate": 1,
+      "range": "Short",
+      "qualities": "Corrosion",
+      "ammo": "N/A",
+      "tn": 8
+    },
+    {
+      "name": "Pipe Pistol",
+      "skill": "small_guns",
+      "tag": false,
+      "weight": 4,
+      "damage": "4d6",
+      "effects": "Piercing",
+      "type": "Ballistic",
+      "rate": 1,
+      "range": "Medium",
+      "qualities": "Improvised",
+      "ammo": ".32",
+      "tn": 11
+    }
+  ],
+  "ammo": [
+    { "caliber": ".32", "quantity": 60 }
+  ],
+  "gear": [
+    { "item": "Bandage", "weight": 0.5 },
+    { "item": "Rad-X", "weight": 0.5 },
+    { "item": "Backpack", "weight": 2 }
+  ],
+  "carry_weight": {
+    "current": 13,
+    "maximum": 130
+  },
+  "perks_traits": [
+    { "name": "Radiation Resistance", "rank": 2, "effect": "+1 to Radiation Damage Resistance." },
+    { "name": "Undead Endurance", "rank": 1, "effect": "Heal 1 HP at end of combat." }
+  ]
+}

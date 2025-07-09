@@ -1,0 +1,63 @@
+/* Simple reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #1a1a1a;
+  color: #f0f0f0;
+  line-height: 1.5;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #ffcc00;
+}
+
+header p {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+/* Character list grid */
+.character-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  list-style: none;
+}
+
+/* Card-style links */
+.character-list li {
+  background: #2b2b2b;
+  border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.character-list li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.character-list a {
+  display: block;
+  padding: 1rem;
+  color: #f0f0f0;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+}
+
+.character-list a:hover {
+  color: #ffcc00;
+}

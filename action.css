@@ -1,0 +1,254 @@
+/* reset + body */
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+
+  background: #1a1a1a;
+
+  color: #f0f0f0;
+
+  height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+}
+
+
+/* Header & nav */
+
+header {
+
+  background: #222;
+
+  padding: 0.5rem 1rem;
+
+}
+
+header h1 {
+
+  font-size: 1.5rem;
+
+  color: #ffcc00;
+
+  margin-bottom: 0.25rem;
+
+}
+
+nav a {
+
+  color: #ccc;
+
+  text-decoration: none;
+
+  font-size: 0.9rem;
+
+}
+
+nav a:hover {
+
+  color: #ffcc00;
+
+}
+
+
+/* Grid container for panels */
+
+.container {
+
+  flex: 1;
+
+  display: grid;
+
+  grid-template-areas:
+
+    "turn-tracker dice-roller"
+
+    "action-menu  action-log"
+
+    ;
+
+  grid-template-columns: 1fr 1fr;
+
+  grid-template-rows: auto 1fr;
+
+  gap: 1rem;
+
+  padding: 1rem;
+
+  overflow: hidden;
+
+}
+
+
+/* Panel base styling */
+
+.panel {
+
+  background: #2b2b2b;
+
+  border-radius: 6px;
+
+  padding: 0.75rem;
+
+  overflow-y: auto;
+
+}
+
+.panel h2 {
+
+  margin-bottom: 0.5rem;
+
+  color: #ffcc00;
+
+}
+
+
+/* Specific areas */
+
+.turn-tracker { grid-area: turn-tracker; }
+
+.action-menu   { grid-area: action-menu; }
+
+.dice-roller   { grid-area: dice-roller; }
+
+.action-log    { grid-area: action-log; }
+
+
+/* Footer snapshot */
+
+.char-snapshot {
+
+  background: #222;
+
+  padding: 0.75rem 1rem;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+}
+
+.char-snapshot h2 {
+
+  flex-basis: 100%;
+
+  margin-bottom: 0.5rem;
+
+}
+
+.char-snapshot .hp-bar {
+
+  flex: 1;
+
+  background: #333;
+
+  border-radius: 4px;
+
+  overflow: hidden;
+
+  height: 1rem;
+
+}
+
+.char-snapshot .hp-fill { background: #e00; height: 100%; }
+
+
+/* Form elements */
+
+label {
+
+  display: block;
+
+  margin-bottom: 0.25rem;
+
+  font-size: 0.9rem;
+
+}
+
+select, input {
+
+  width: 100%;
+
+  padding: 0.4rem;
+
+  margin-bottom: 0.5rem;
+
+  background: #333;
+
+  color: #f0f0f0;
+
+  border: 1px solid #555;
+
+  border-radius: 4px;
+
+}
+
+button {
+
+  display: inline-block;
+
+  margin: 0.25rem;
+
+  padding: 0.5rem 1rem;
+
+  background: #444;
+
+  color: #f0f0f0;
+
+  border: none;
+
+  border-radius: 4px;
+
+  cursor: pointer;
+
+}
+
+button:disabled {
+
+  opacity: 0.5;
+
+  cursor: not-allowed;
+
+}
+
+
+/* Action-group headings */
+
+.action-group h3 {
+
+  margin-top: 0.75rem;
+
+  margin-bottom: 0.25rem;
+
+  font-size: 1rem;
+
+  color: #ccc;
+
+}
+
+
+/* Log list */
+
+.action-log ul {
+
+  list-style: none;
+
+}
+
+.action-log li {
+
+  margin-bottom: 0.5rem;
+
+  padding-bottom: 0.5rem;
+
+  border-bottom: 1px solid #444;
+
+}
+

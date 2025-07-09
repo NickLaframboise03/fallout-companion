@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <title>Fallout 2D20 – Action Page</title>
+
+  <link rel="stylesheet" href="action.css">
+
+  <!-- defer ensures the DOM is parsed before action.js runs -->
+
+  <script src="action.js" defer></script>
+
+</head>
+
+<body>
+
+  <header>
+
+    <h1>Fallout 2D20 Companion</h1>
+
+    <nav>
+
+      <a href="index.html">← Character Viewer</a>
+
+    </nav>
+
+  </header>
+
+
+  <div class="container">
+
+    <!-- Turn Tracker Panel -->
+
+    <section id="turn-tracker" class="panel turn-tracker">
+
+      <h2>Turn Tracker</h2>
+
+      <label for="select-combatant">Combatant:</label>
+
+      <select id="select-combatant">
+
+        <option value="">-- Loading --</option>
+
+      </select>
+
+      <div class="turn-buttons">
+
+        <button id="btn-start" disabled>Start Turn</button>
+
+        <button id="btn-end"   disabled>End Turn</button>
+
+      </div>
+
+      <div class="ap-display">
+
+        <div>Move AP:     <span id="ap-move">0</span></div>
+
+        <div>Major AP:    <span id="ap-major">0</span></div>
+
+        <div>Minor AP:    <span id="ap-minor">0</span></div>
+
+        <div>Reaction AP: <span id="ap-reaction">0</span></div>
+
+        <div>Luck:        <span id="luck">0</span></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Action Menu -->
+
+    <section id="action-menu" class="panel action-menu">
+
+      <h2>Action Menu</h2>
+
+      <div class="action-group">
+
+        <h3>Move</h3>
+
+        <input type="number" id="move-dist" placeholder="Distance (tiles)">
+
+        <button id="do-move" disabled>Move</button>
+
+      </div>
+
+      <div class="action-group">
+
+        <h3>Major Actions</h3>
+
+        <button id="do-attack" disabled>Attack</button>
+
+        <button id="do-skill"  disabled>Skill Check</button>
+
+        <button id="do-aim"    disabled>Aim</button>
+
+        <button id="do-vats"   disabled>V.A.T.S.</button>
+
+      </div>
+
+      <div class="action-group">
+
+        <h3>Minor Actions</h3>
+
+        <button id="do-use-item" disabled>Use Item</button>
+
+        <button id="do-reload"   disabled>Reload</button>
+
+        <button id="do-swap"     disabled>Swap Weapon</button>
+
+      </div>
+
+      <div class="action-group">
+
+        <h3>Reaction</h3>
+
+        <button id="do-overwatch" disabled>Overwatch</button>
+
+        <button id="do-dodge"     disabled>Dodge</button>
+
+        <button id="do-interrupt" disabled>Interrupt</button>
+
+      </div>
+
+    </section>
+
+
+    <!-- Dice Roller -->
+
+    <section id="dice-roller" class="panel dice-roller">
+
+      <h2>Dice Roller</h2>
+
+      <div id="dice-output">No rolls yet.</div>
+
+    </section>
+
+
+    <!-- Action Log -->
+
+    <section id="action-log" class="panel action-log">
+
+      <h2>Action Log</h2>
+
+      <ul id="log-list">
+
+        <li>No actions logged yet.</li>
+
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <!-- Character Snapshot Footer -->
+
+  <footer id="char-snapshot" class="panel char-snapshot">
+
+    <h2>Character Snapshot</h2>
+
+    <div><strong id="snap-name">–</strong></div>
+
+    <div class="hp-bar">
+
+      <div class="hp-fill" style="width:0%"></div>
+
+    </div>
+
+    <div>Caps: <span id="snap-caps">0</span></div>
+
+    <div><a href="index.html">Full Character Sheet</a></div>
+
+  </footer>
+
+
+  <!-- Modal root (for future roll modals) -->
+
+  <div id="modal-root"></div>
+
+</body>
+
+</html>
+

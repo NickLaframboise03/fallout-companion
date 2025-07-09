@@ -1,0 +1,107 @@
+{
+  "character": {
+    "name": "Brotherhood Paladin",
+    "origin": "Brotherhood of Steel",
+    "level": 4,
+    "xp_earned": 1000,
+    "xp_to_next": 500,
+    "caps": 150
+  },
+  "special": {
+    "S": 7,
+    "P": 6,
+    "E": 6,
+    "C": 5,
+    "I": 5,
+    "A": 5,
+    "L": 3
+  },
+  "derived": {
+    "luck_points": 3,
+    "melee_damage": 1,
+    "initiative": 6,
+    "defense": 2
+  },
+  "resistance": {
+    "head": { "hp": 2, "phys_dr": 4, "rad_dr": 2, "en_dr": 2 },
+    "torso": { "hp": 6, "phys_dr": 6, "rad_dr": 2, "en_dr": 3 },
+    "left_arm": { "hp": 2, "phys_dr": 4, "rad_dr": 2, "en_dr": 2 },
+    "right_arm": { "hp": 2, "phys_dr": 4, "rad_dr": 2, "en_dr": 2 },
+    "left_leg": { "hp": 2, "phys_dr": 4, "rad_dr": 2, "en_dr": 2 },
+    "right_leg": { "hp": 2, "phys_dr": 4, "rad_dr": 2, "en_dr": 2 },
+    "poison_dr": 0
+  },
+  "health": {
+    "current": 14,
+    "max": 14,
+    "torso": 6,
+    "duplicate_current": ""
+  },
+  "skills": {
+    "athletics": { "rank": 3, "tag": true },
+    "barter": { "rank": 1, "tag": false },
+    "big_guns": { "rank": 2, "tag": false },
+    "energy_weapons": { "rank": 3, "tag": true },
+    "explosives": { "rank": 0, "tag": false },
+    "lockpick": { "rank": 1, "tag": false },
+    "medicine": { "rank": 2, "tag": false },
+    "melee_weapons": { "rank": 3, "tag": true },
+    "pilot": { "rank": 0, "tag": false },
+    "repair": { "rank": 2, "tag": true },
+    "science": { "rank": 1, "tag": false },
+    "small_guns": { "rank": 1, "tag": false },
+    "sneak": { "rank": 0, "tag": false },
+    "speech": { "rank": 2, "tag": true },
+    "survival": { "rank": 1, "tag": false },
+    "throwing": { "rank": 1, "tag": false },
+    "unarmed": { "rank": 1, "tag": false }
+  },
+  "weapons": [
+    {
+      "name": "Plasma Rifle",
+      "skill": "energy_weapons",
+      "tag": true,
+      "weight": 10,
+      "damage": "6d6",
+      "effects": "Persistent",
+      "type": "Energy",
+      "rate": 1,
+      "range": "Long",
+      "qualities": "Bone Crusher",
+      "ammo": "Microfusion Cell",
+      "tn": 8
+    },
+    {
+      "name": ".45 Auto Pistol",
+      "skill": "small_guns",
+      "tag": false,
+      "weight": 3,
+      "damage": "4d6",
+      "effects": "Piercing",
+      "type": "Ballistic",
+      "rate": 1,
+      "range": "Medium",
+      "qualities": "Reliable",
+      "ammo": ".45 Auto",
+      "tn": 10
+    }
+  ],
+  "ammo": [
+    { "caliber": "Microfusion Cell", "quantity": 100 },
+    { "caliber": ".45 Auto", "quantity": 200 }
+  ],
+  "gear": [
+    { "item": "Stimpak", "weight": 0.5 },
+    { "item": "Rad-X", "weight": 0.5 },
+    { "item": "T-60 Power Helmet", "weight": 5 }
+  ],
+  "carry_weight": {
+    "current": 60,
+    "maximum": 180
+  },
+  "perks_traits": [
+    { "name": "Quick Hands", "rank": 1, "effect": "Reload as minor action." },
+    { "name": "Power Armor Training", "rank": 2, "effect": "No movement penalty while wearing power armor." },
+    { "name": "Speaker for the Brotherhood", "rank": 1, "effect": "+1 bonus on Speech checks when interacting with Brotherhood members." }
+  ]
+}

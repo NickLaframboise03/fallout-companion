@@ -1,0 +1,105 @@
+{
+  "character": {
+    "name": "Wasteland Scavenger",
+    "origin": "Wasteland Scavenger",
+    "level": 2,
+    "xp_earned": 250,
+    "xp_to_next": 150,
+    "caps": 30
+  },
+  "special": {
+    "S": 5,
+    "P": 6,
+    "E": 4,
+    "C": 4,
+    "I": 7,
+    "A": 5,
+    "L": 3
+  },
+  "derived": {
+    "luck_points": 3,
+    "melee_damage": 0,
+    "initiative": 6,
+    "defense": 2
+  },
+  "resistance": {
+    "head": { "hp": 2, "phys_dr": 1, "rad_dr": 1, "en_dr": 1 },
+    "torso": { "hp": 6, "phys_dr": 2, "rad_dr": 1, "en_dr": 1 },
+    "left_arm": { "hp": 2, "phys_dr": 1, "rad_dr": 1, "en_dr": 1 },
+    "right_arm": { "hp": 2, "phys_dr": 1, "rad_dr": 1, "en_dr": 1 },
+    "left_leg": { "hp": 2, "phys_dr": 1, "rad_dr": 1, "en_dr": 1 },
+    "right_leg": { "hp": 2, "phys_dr": 1, "rad_dr": 1, "en_dr": 1 },
+    "poison_dr": 0
+  },
+  "health": {
+    "current": 10,
+    "max": 10,
+    "torso": 6,
+    "duplicate_current": ""
+  },
+  "skills": {
+    "athletics": { "rank": 1, "tag": false },
+    "barter": { "rank": 2, "tag": true },
+    "big_guns": { "rank": 0, "tag": false },
+    "energy_weapons": { "rank": 0, "tag": false },
+    "explosives": { "rank": 1, "tag": false },
+    "lockpick": { "rank": 2, "tag": true },
+    "medicine": { "rank": 1, "tag": false },
+    "melee_weapons": { "rank": 2, "tag": false },
+    "pilot": { "rank": 0, "tag": false },
+    "repair": { "rank": 1, "tag": false },
+    "science": { "rank": 1, "tag": false },
+    "small_guns": { "rank": 2, "tag": true },
+    "sneak": { "rank": 3, "tag": true },
+    "speech": { "rank": 1, "tag": false },
+    "survival": { "rank": 3, "tag": true },
+    "throwing": { "rank": 2, "tag": false },
+    "unarmed": { "rank": 1, "tag": false }
+  },
+  "weapons": [
+    {
+      "name": "Hunting Rifle",
+      "skill": "small_guns",
+      "tag": true,
+      "weight": 8,
+      "damage": "5d6",
+      "effects": "Accurate",
+      "type": "Ballistic",
+      "rate": 1,
+      "range": "Long",
+      "qualities": "Accurate",
+      "ammo": ".308",
+      "tn": 9
+    },
+    {
+      "name": "Machete",
+      "skill": "melee_weapons",
+      "tag": false,
+      "weight": 4,
+      "damage": "3d6",
+      "effects": "Slashing",
+      "type": "Melee",
+      "rate": 1,
+      "range": "Short",
+      "qualities": "Bleed",
+      "ammo": "N/A",
+      "tn": 8
+    }
+  ],
+  "ammo": [
+    { "caliber": ".308", "quantity": 40 }
+  ],
+  "gear": [
+    { "item": "Gas Mask", "weight": 1 },
+    { "item": "Backpack", "weight": 2 },
+    { "item": "Rope (50ft)", "weight": 3 }
+  ],
+  "carry_weight": {
+    "current": 20,
+    "maximum": 150
+  },
+  "perks_traits": [
+    { "name": "Scrounger", "rank": 1, "effect": "Find +1 ammunition in containers." },
+    { "name": "Fortune Finder", "rank": 1, "effect": "Find +5% more caps in containers." }
+  ]
+}
