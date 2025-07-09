@@ -249,6 +249,54 @@ function onDodge()  { addLog(`${currentName()} Dodges.`); }
 function onInterrupt(){ addLog(`${currentName()} Interrupts.`); }
 
 
+// --- Dice Roller ---
+function randomInt(max) {
+  return Math.floor(Math.random() * max) + 1;
+}
+
+function animateDice(elements, sides, values, cb) {
+  const start = performance.now();
+  function frame(now) {
+    const elapsed = now - start;
+    if (elapsed < 1000) {
+      elements.forEach(el => {
+        el.textContent = randomInt(sides);
+      });
+      requestAnimationFrame(frame);
+    } else {
+      elements.forEach((el, i) => {
+        el.textContent = values[i];
+        el.classList.remove('rolling');
+      });
+      if (cb) cb();
+    }
+  }
+  elements.forEach(el => el.classList.add('rolling'));
+  requestAnimationFrame(frame);
+}
+
+function onRollDice() {
+  const sides = parseInt(document.getElementById('dice-type').value, 10);
+  let count = parseInt(document.getElementById('dice-count').value, 10);
+  count = Math.max(1, Math.min(20, count || 1));
+  const container = document.getElementById('dice-results');
+  container.innerHTML = '';
+  const diceElems = [];
+  const results = [];
+  for (let i = 0; i < count; i++) {
+    const val = randomInt(sides);
+    results.push(val);
+    const d = document.createElement('div');
+    d.className = 'die';
+    d.textContent = val;
+    container.appendChild(d);
+    diceElems.push(d);
+  }
+  animateDice(diceElems, sides, results, () => {
+    addLog(`Rolled ${count}d${sides}: [${results.join(', ')}]`);
+  });
+}
+
 // --- Bootstrap ---
 
 async function init() {
@@ -280,6 +328,7 @@ async function init() {
   document.getElementById('do-dodge').addEventListener('click', onDodge);
 
   document.getElementById('do-interrupt').addEventListener('click', onInterrupt);
+  document.getElementById('roll-dice').addEventListener('click', onRollDice);
 
   // initial render
 
