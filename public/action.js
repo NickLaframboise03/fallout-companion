@@ -2,6 +2,7 @@
 
 
 // --- State Model ---
+const socket = io();
 
 const state = {
 
@@ -20,6 +21,14 @@ const state = {
   actionLog: []     // [{ time, text }]
 
 };
+
+socket.on("state", (serverState) => {
+  Object.assign(state, serverState);
+  renderCombatantSelect();
+  renderAPDisplay();
+  renderSnapshot();
+  renderLog();
+});
 
 
 // --- Load characters (with fallback sample data) ---
@@ -131,6 +140,10 @@ function renderSnapshot() {
   fill.style.width = pct + '%';
 
   snapCaps.textContent = c.caps || 0;
+  const sheetLink = document.getElementById('full-sheet');
+  if (sheetLink) {
+    sheetLink.href = c.id ? `/api/characters/${c.id}/pdf` : '#';
+  }
 
 }
 
@@ -159,94 +172,46 @@ function renderLog() {
 // --- Event Handlers ---
 
 function onStartTurn() {
-
   const id = document.getElementById('select-combatant').value;
-
   if (!id) return;
-
-  state.currentTurn.charId = id;
-
-  state.currentTurn.AP = { move:1, major:1, minor:1, reaction:1 };
-
-  state.currentTurn.luck = state.characters[id].luck;
-
-  // enable all action buttons
-
-  document.querySelectorAll('#action-menu button').forEach(b => b.disabled = false);
-
-  document.getElementById('btn-end').disabled = false;
-
-  renderAPDisplay();
-
-  renderSnapshot();
-
-  addLog(`${currentName()} starts their turn.`);
-
+  socket.emit('startTurn', { charId: id });
 }
-
 
 function onEndTurn() {
-
-  // simple round‐robin
-
-  const ids = Object.keys(state.characters);
-
-  let idx = ids.indexOf(state.currentTurn.charId);
-
-  idx = (idx + 1) % ids.length;
-
-  document.getElementById('select-combatant').value = ids[idx];
-
-  onStartTurn();
-
+  socket.emit('endTurn');
 }
-
 
 function onMove() {
-
   const dist = parseInt(document.getElementById('move-dist').value, 10) || 0;
-
   if (state.currentTurn.AP.move <= 0) return alert('No Move AP left');
-
-  state.currentTurn.AP.move -= 1;
-
-  renderAPDisplay();
-
-  addLog(`${currentName()} moves ${dist} tiles.`);
-
+  socket.emit('spendAP', 'move');
+  socket.emit('log', `${currentName()} moves ${dist} tiles.`);
 }
 
-
 function onAttack() {
-
   if (state.currentTurn.AP.major <= 0) return alert('No Major AP left');
-
-  state.currentTurn.AP.major -= 1;
-
-  renderAPDisplay();
-
-  addLog(`${currentName()} performs an Attack.`);
-
+  socket.emit('spendAP', 'major');
+  socket.emit('log', `${currentName()} performs an Attack.`);
 }
 
 
 // stub handlers for other actions...
 
-function onSkill()  { addLog(`${currentName()} does a Skill Check.`); }
+function onSkill()  { socket.emit('log', `${currentName()} does a Skill Check.`); }
 
-function onAim()    { addLog(`${currentName()} takes aim.`); }
+function onAim()    { socket.emit('log', `${currentName()} takes aim.`); }
 
-function onUseItem(){ addLog(`${currentName()} uses an item.`); }
+function onUseItem(){ socket.emit('log', `${currentName()} uses an item.`); }
 
-function onReload() { addLog(`${currentName()} reloads their weapon.`); }
+function onReload() { socket.emit('log', `${currentName()} reloads their weapon.`); }
 
-function onSwap()   { addLog(`${currentName()} swaps weapon.`); }
+function onSwap()   { socket.emit('log', `${currentName()} swaps weapon.`); }
 
-function onOverwatch() { addLog(`${currentName()} sets Overwatch.`); }
+function onOverwatch() { socket.emit('log', `${currentName()} sets Overwatch.`); }
 
-function onDodge()  { addLog(`${currentName()} Dodges.`); }
+function onDodge()  { socket.emit('log', `${currentName()} Dodges.`); }
 
-function onInterrupt(){ addLog(`${currentName()} Interrupts.`); }
+function onInterrupt(){ socket.emit('log', `${currentName()} Interrupts.`); }
 
 
 // --- Dice Roller ---
@@ -293,7 +258,7 @@ function onRollDice() {
     diceElems.push(d);
   }
   animateDice(diceElems, sides, results, () => {
-    addLog(`Rolled ${count}d${sides}: [${results.join(', ')}]`);
+    socket.emit('log', `Rolled ${count}d${sides}: [${results.join(', ')}]`);
   });
 }
 
