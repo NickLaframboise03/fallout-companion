@@ -11,6 +11,7 @@
   <title>Fallout 2D20 – Action Page</title>
 
   <link rel="stylesheet" href="action.css">
+    <script src="/socket.io/socket.io.js"></script>
 
   <!-- defer ensures the DOM is parsed before action.js runs -->
 
@@ -180,9 +181,7 @@
 
     <div>Caps: <span id="snap-caps">0</span></div>
 
-    <div><a href="index.html">Full Character Sheet</a></div>
-
-  </footer>
+    <div><a id="full-sheet" href="#">Full Character Sheet</a></div>
 
 
   <!-- Modal root (for future roll modals) -->
