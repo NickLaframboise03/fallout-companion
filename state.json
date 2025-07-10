@@ -1,0 +1,8 @@
+{
+  "currentTurn": {
+    "charId": null,
+    "AP": {"move":0, "major":0, "minor":0, "reaction":0},
+    "luck":0
+  },
+  "actionLog": []
+}
